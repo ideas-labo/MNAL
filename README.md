@@ -117,3 +117,63 @@ To retrieve corresponding figure data, please run:
 python result_analysis.py --fig NUMBER_TO_ENTER
 ```
 where `NUMBER_TO_ENTER` is the number of figure.
+
+# Experiments Added in the Revision
+
+## Added Experiment Content
+- **New Q1**: Replace `diversity` with `uncertainty` as the sampling metric for active learning  
+- **New Q2**: Test the performance of MANL under the condition of imbalanced training sample classes  
+- **New Q3**: Test the performance upper bound of MANL  
+
+## Experiment Source Code
+All newly added experiment codes and results are stored in the `extend_expriments/` directory. The `extend_expriments/` directory contains the following contents:
+```
+extend_expriments/
+├── result/
+├── shell_scripts/
+├── balance_test.py
+├── data_gen.py
+├── diversity_test.py
+├── model_gen.py
+├── res_summary.py
+├── tool_funcs.py
+└── upper_bound.py
+```
+- The `shell_scripts` directory contains shell scripts for one-click execution of experiments.  
+- The `result` directory contains the evaluation results of each experiment at each active learning sampling step, stored in JSON format.  
+
+## Running the Experiments
+First, navigate to the `shell_scripts` directory:
+```bash
+cd ./shell_scripts
+```
+
+### Install Dependencies
+```bash
+./install.sh
+```
+
+### Generate Imbalanced Class Data
+```bash
+./data_gen.sh
+```
+
+### Initialize the Model
+```bash
+./model_gen.sh
+```
+
+### New Q1
+```bash
+./diversity_test.sh
+```
+
+### New Q2
+```bash
+./balance_test.sh
+```
+
+### New Q3
+```bash
+./upper_bound_test.sh
+```
