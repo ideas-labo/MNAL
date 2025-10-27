@@ -23,6 +23,7 @@ This README file describes the structure of the provided files (Raw data, source
     <li><a href="#Research Questions">Research Questions</a></li>
     <li><a href="#Result">Result</a></li>
     <li><a href="#Result Analysis">Result Analysis</a></li>
+    <li><a href="#Discussion">Discussion</a></li>
   </ol>
 </details>
 
@@ -87,6 +88,18 @@ The explanation of each parameter input is listed in the table below:
 | `STEP` | The timestep that you would like to start from. In our setting, it can be from 1 to 10. |
 | `METHOD_NAME` | The SOTA approach you would like to perform. In our setting, it can be 'Thung et al.' , 'hbrPredictor', 'Ge et al.' or 'EMBLEM' |
 
+
+**Note:** The script above does not encompass testing for all SOTA methods. Regarding the HINT [1] method, we have reproduced it in the `rq4_HINT` folder. Execute the following command to run this method:
+````
+cd rq4_HINT
+shell ./sun_ssl.sh
+````
+- [1] S. Gao, W. Mao, C. Gao, L. Li, X. Hu, X. Xia, and M. R. Lyu, “Learning in the wild:
+Towards leveraging unlabeled data for effectively tuning pre-trained code models,” in
+Proceedings of the 46th IEEE/ACM International Conference on Software Engineering, ICSE
+2024, Lisbon, Portugal, April 14-20, 2024. ACM, 2024, pp. 80:1–80:13. [Online]. Available:
+https://doi.org/10.1145/3597503.3639216  
+
 ## Result 
 
 The experimental result data we obtained is too large, so we have shared the data anonymously on Dropbox. You can download it from this [link](https://www.dropbox.com/scl/fo/o45rrmaolsvnfp8zldqox/h?rlkey=zkqrpev4qqpxyftr9jukvnk45&dl=0).
@@ -118,17 +131,18 @@ python result_analysis.py --fig NUMBER_TO_ENTER
 ```
 where `NUMBER_TO_ENTER` is the number of figure.
 
-# Experiments Added in the Revision
 
-## Added Experiment Content
-- **New Q1**: Replace `diversity` with `uncertainty` as the sampling metric for active learning  
-- **New Q2**: Test the performance of MANL under the condition of imbalanced training sample classes  
-- **New Q3**: Test the performance upper bound of MANL  
+## Discussion
 
-## Experiment Source Code
-All newly added experiment codes and results are stored in the `extend_expriments/` directory. The `extend_expriments/` directory contains the following contents:
-```
-extend_expriments/
+### Discussion Questions
+- **Discussion Question 1**: Replace `diversity` with `uncertainty` as the sampling metric for active learning  
+- **Discussion Question 2**: Test the performance of MANL under the condition of imbalanced training sample classes  
+- **Discussion Question 3**: Test the performance upper bound of MANL  
+
+### Discussion Experiment Source Code
+The source code related to the above discussion experiments is encapsulated within the `discussion` folder, which contains the following contents:
+````
+discussion/
 ├── result/
 ├── shell_scripts/
 ├── balance_test.py
@@ -138,42 +152,42 @@ extend_expriments/
 ├── res_summary.py
 ├── tool_funcs.py
 └── upper_bound.py
-```
+````
 - The `shell_scripts` directory contains shell scripts for one-click execution of experiments.  
 - The `result` directory contains the evaluation results of each experiment at each active learning sampling step, stored in JSON format.  
 
-## Running the Experiments
+### Running the discussion experiments
 First, navigate to the `shell_scripts` directory:
-```bash
+````
 cd ./shell_scripts
-```
+````
 
-### Install Dependencies
-```bash
+#### Install Dependencies
+````
 ./install.sh
-```
+````
 
-### Generate Imbalanced Class Data
-```bash
+#### Generate Imbalanced Class Data
+````
 ./data_gen.sh
-```
+````
 
-### Initialize the Model
-```bash
+#### Initialize the Model
+````
 ./model_gen.sh
-```
+````
 
-### New Q1
-```bash
+#### Discussion Q1
+````
 ./diversity_test.sh
-```
+````
 
-### New Q2
-```bash
+#### Discussion Q2
+````
 ./balance_test.sh
-```
+````
 
-### New Q3
-```bash
+#### Discussion Q3
+````
 ./upper_bound_test.sh
-```
+````

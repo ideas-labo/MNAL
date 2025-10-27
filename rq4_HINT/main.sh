@@ -1,0 +1,22 @@
+python main.py \
+    --mode=pl_ours\
+    --threshold=0.25\
+    --edit=0.4\
+    --output_dir=./saved_models/pl_ours \
+    --teacher_path=./saved_models/teacher_models \
+    --model_type=bert \
+    --tokenizer_name=bert-base-uncased \
+    --model_name_or_path=bert-base-uncased \
+    --do_train \
+    --eval_data_file=./dataset/MNAL/eval.jsonl \
+    --test_data_file=./dataset/MNAL/test.jsonl \
+    --train_data_file=./dataset/MNAL/unlabel.jsonl \
+    --unlabel_filename=./dataset/MNAL/unlabel.jsonl \
+    --epoch 18 \
+    --block_size 100 \
+    --train_batch_size 32 \
+    --eval_batch_size 64 \
+    --learning_rate 2e-5 \
+    --max_grad_norm 1.0 \
+    --evaluate_during_training \
+    --seed 123456  2>&1 | tee train.log

@@ -1026,4 +1026,3 @@ for sample_time in range(start_from_step,sample_times):
 
   with open(f'/rq1/data/rq1_initial_size{initial_size}_sample_size{sample_size}_run_{run+1}_step{sample_time+1}-{sample_times}_{MODE}_{f1_flag}{f2_flag}{f3_flag}{f4_flag}{f5_flag}.pkl','wb') as pklfile:
     pickle.dump(files, pklfile)
-
